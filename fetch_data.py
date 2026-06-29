@@ -21,7 +21,8 @@ print(f"Uptime data: {uptime_df.shape}")
 print("Pulling stream metadata...")
 streams_response = requests.get(
     f"{BASE_URL}/streams",
-    headers=headers
+    headers=headers,
+    params={"is_mobile": "false"}
 )
 streams_df = pd.DataFrame(streams_response.json())
 print(f"Stream data: {streams_df.shape}")
